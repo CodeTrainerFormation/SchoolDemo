@@ -21,6 +21,10 @@ namespace DomainModel
         [Range(0, 140)]
         public int? Age { get; set; }
 
+        // navigation property
+        [ForeignKey(nameof(School))]
+        public int SchoolID { get; set; }
+
         public School? School { get; set; }
     }
 }
