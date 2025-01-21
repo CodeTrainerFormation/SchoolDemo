@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainModel
 {
-    [Table("Person")]
+    [Table(nameof(Person))]
     public record Person
     {
         [Key]
