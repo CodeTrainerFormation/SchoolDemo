@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    internal class School
+    public record School
     {
-        public int SchoolID { get; set; }
+        public int SchoolID { get; init; }
         public required string Name { get; set; }
 
+        public ICollection<Person> People { get; set; } = new HashSet<Person>();
     }
 }
