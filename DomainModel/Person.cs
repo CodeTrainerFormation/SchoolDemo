@@ -23,7 +23,7 @@ namespace DomainModel
 
         // navigation property
         [ForeignKey(nameof(School))]
-        public int SchoolID { get; set; }
+        public int? SchoolID { get; set; }
 
         public School? School { get; set; }
     }
