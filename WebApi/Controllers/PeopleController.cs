@@ -22,10 +22,10 @@ namespace WebApi.Controllers
         }
 
         // GET : api/people/route/{myparam}
-        [HttpGet("route/{myparam}")]
-        public IActionResult MethodWithRouteParam([FromRoute] string myparam)
+        [HttpGet("route/{myParam}")]
+        public IActionResult MethodWithRouteParam([FromRoute] string myParam)
         {
-            return Ok($"mon param de route: {myparam}");
+            return Ok($"mon param de route: {myParam}");
         }
 
         // GET : api/people/add/{operandOne}/{operandTwo}
@@ -34,6 +34,20 @@ namespace WebApi.Controllers
             [FromRoute] int operandOne, [FromRoute] int operandTwo)
         {
             return Ok($"le resultat du calcul {operandOne} + {operandTwo} est {operandOne + operandTwo}");
+        }
+
+        // GET : api/people/query?myParam=hello
+        [HttpGet("query")]
+        public IActionResult Query([FromQuery] string myParam)
+        {
+            return Ok($"mon param de querystring: {myParam}");
+        }
+
+        // GET : api/people/body + body
+        [HttpGet("body")]
+        public IActionResult Body([FromBody] string message)
+        {
+            return Ok($"mon body : {message}");
         }
 
         // POST : api/people
