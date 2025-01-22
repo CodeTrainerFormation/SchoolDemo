@@ -1,5 +1,6 @@
 using Dal;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,15 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.Use(async (context, next) =>
+{
+    app.Logger.LogInformation("Middleware start");
+    await next.Invoke();
+    app.Logger.LogInformation("Middleware end");
+});
+
+app.UseStaticFiles();
 
 app.MapControllers();
 
