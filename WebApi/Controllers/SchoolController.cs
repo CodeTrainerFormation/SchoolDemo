@@ -39,6 +39,25 @@ namespace WebApi.Controllers
             return Ok(school);
         }
 
+        // GET : api/school/name/hexagone
+        [HttpGet("name/{schoolName}")]
+        public IActionResult GetSchoolByName([FromRoute] string schoolName)
+        {
+            School? school = this.context.Schools.SingleOrDefault(s => s.Name == schoolName);
+
+            if(school == null)
+                return NotFound();
+
+            return Ok(school);
+        }
+
+        // GET : api/school/search/name/hexa
+        [HttpGet("search/name/{search}")]
+        public IActionResult GetSchool([FromRoute] string search)
+        {
+            return Ok(this.context.Schools.Where(s => s.Name.Contains(search)));
+        }
+
         // POST : api/school
         [HttpPost]
         public IActionResult AddSchool([FromBody] School school)
