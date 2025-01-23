@@ -2,6 +2,7 @@
 using DomainModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
@@ -20,7 +21,9 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAllSchools()
         {
-            var list = this.context.Schools.ToList();
+            var list = this.context.Schools
+                                   .Include(s => s.People)
+                                   .ToList();
             return Ok(list);
         }
 

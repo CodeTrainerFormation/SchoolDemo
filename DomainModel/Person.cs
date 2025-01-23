@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DomainModel
 {
@@ -25,6 +26,7 @@ namespace DomainModel
         [ForeignKey(nameof(School))]
         public int? SchoolID { get; set; }
 
+        [JsonIgnore]
         public School? School { get; set; }
     }
 }

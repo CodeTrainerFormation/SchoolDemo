@@ -1,12 +1,15 @@
 ﻿using Dal;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApi.Filters;
 
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles = "Admin")]
     public class ManagerController : ControllerBase
     {
         private readonly SchoolContext context;
@@ -28,13 +31,27 @@ namespace WebApi.Controllers
             return Ok("oki");
         }
 
+        //[Authorize(Roles = "Admin")]
         [HttpGet("destroy")]
         public IActionResult Destroy()
         {
+            //if(!base.User.Identity!.IsAuthenticated)
+            //    return Forbid();
+
+            //if(!base.User.IsInRole("Admin"))
+            //    return Unauthorized();
+
             this.context.Database.EnsureDeleted();
             this.logger.LogInformation("base de données détruite OU non présente");
 
             return Ok("deleted");
+        }
+
+        [MyFilter]
+        [HttpGet("error")]
+        public IActionResult Error()
+        {
+            throw new NotImplementedException();
         }
     }
 }

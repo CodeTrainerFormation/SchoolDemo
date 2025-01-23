@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dal;
+using DomainModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -50,11 +52,15 @@ namespace WebApi.Controllers
             return Ok($"mon body : {message}");
         }
 
-        // POST : api/people
         [HttpPost]
-        public IActionResult AddInformation()
+        public IActionResult AddPerson(
+            [FromServices] SchoolContext context,
+            [FromBody] Person person)
         {
-            return Ok("info added");
+            context.Add(person);
+            context.SaveChanges();
+
+            return Ok(person);
         }
     }
 }
