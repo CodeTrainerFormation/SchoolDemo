@@ -54,6 +54,11 @@ namespace WebApi.Controllers
             return Ok(school);
         }
 
+        /// <summary>
+        /// Get a school by a name (startswith/endswith/contains)
+        /// </summary>
+        /// <param name="search">a word</param>
+        /// <returns>a school</returns>
         // GET : api/school/search/name/hexa
         [HttpGet("search/name/{search}")]
         public IActionResult GetSchool([FromRoute] string search)
@@ -95,6 +100,7 @@ namespace WebApi.Controllers
                 return BadRequest();
 
             School? school = this.context.Schools.Find(id);
+
             if(school == null)
                 return NotFound();
 
