@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Front';
+  title = 'Bonjour tout le monde';
+
+  items = [
+    "item1",
+    "item2",
+    "item3"
+  ]
+
+  addItem(){
+    this.items.push("new item");
+  }
 }
