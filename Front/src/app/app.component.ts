@@ -8,14 +8,6 @@ import { School } from './school';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  
-  // title = 'Bonjour tout le monde';
-  // items = [
-  //   "item1",
-  //   "item2",
-  //   "item3"
-  // ]
-
 
   schools: School[] = [];
 
@@ -44,7 +36,8 @@ export class AppComponent implements OnInit {
       name: "Hexagone Cannes"
     };
 
-    this.service.addSchool(school).subscribe(() => this.getSchools());
+    this.service.addSchool(school)
+                .subscribe(() => this.getSchools());
   }
 
   updateSchool1(){
@@ -53,10 +46,12 @@ export class AppComponent implements OnInit {
       name: "Hexagone Clermont Turing22"
     };
 
-    this.service.updateSchool(school).subscribe(() => this.getSchools());
+    this.service.updateSchool(school)
+                .subscribe(() => this.getSchools());
   }
 
   removeSchool3(){
-    this.service.deleteSchool(3).subscribe(() => this.getSchools());
+    this.service.deleteSchool(3)
+                .subscribe(() => this.getSchools());
   }
 }
