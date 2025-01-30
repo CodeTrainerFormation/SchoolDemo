@@ -1,4 +1,4 @@
 export interface School {
-    schoolId: number;
+    schoolID: number;
     name: string;
 }

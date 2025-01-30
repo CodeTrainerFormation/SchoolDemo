@@ -27,7 +27,7 @@ export class SchoolService {
   }
 
   updateSchool(school: School): Observable<any>{
-    return this.http.put<School>(`${this.apiUrl}/school/${school.schoolId}`, school);
+    return this.http.put<School>(`${this.apiUrl}/school/${school.schoolID}`, school);
   }
 
   deleteSchool(id: number): Observable<School>{
