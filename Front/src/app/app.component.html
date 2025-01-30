@@ -1,4 +1,4 @@
-Hello World
+<!-- Hello World
 
 <p>{{ title }}</p>
 
@@ -11,4 +11,8 @@ Hello World
 </ul>
 
 
-<button (click)="addItem()" >Add item</button>
+<button (click)="addItem()" >Add item</button> -->
+
+@for (school of schools; track school){
+<p>Name : {{ school.name }} (id: {{ school.schoolId }})</p>
+}
