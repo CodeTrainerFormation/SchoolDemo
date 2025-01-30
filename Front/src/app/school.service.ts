@@ -1,17 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { School } from './school';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SchoolService {
 
+  private apiUrl = 'https://localhost:7048/api';
+
   constructor(
-    http: HttpClient
+    private http: HttpClient
   ){}
 
-  getSchools(){
-    
+  getSchools(): Observable<School[]>{
+    return this.http.get<School[]>(`${this.apiUrl}/school`);
+  }
+
+  getSchool(id: number): Observable<School>{
+    return this.http.get<School>(`${this.apiUrl}/school/${id}`);
+  }
+
+  addSchool(school: School): Observable<School>{
+    return this.http.post<School>(this.apiUrl, school);
+  }
+
+  updateSchool(school: School): Observable<any>{
+    return this.http.put<School>(`${this.apiUrl}/school/${school.schoolId}`, school);
+  }
+
+  deleteSchool(id: number): Observable<School>{
+    return this.http.delete<School>(`${this.apiUrl}/school/${id}`);
   }
 
 }

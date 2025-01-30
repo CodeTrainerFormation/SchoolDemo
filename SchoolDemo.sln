@@ -27,7 +27,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Front", "Front\", "{01E0C66
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "12314"
+		SlnRelativePath = "Front\"
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{69359285-03AE-4441-A9DF-B4ECE0E976CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back", "Back", "{E708E2D6-3F04-471B-A4B8-D49E0970E8E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,5 +59,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{924D8E79-E4BF-4556-AA7C-B4917760E497} = {E708E2D6-3F04-471B-A4B8-D49E0970E8E4}
+		{EE7ABA61-23C8-4E83-B657-0475B6F32861} = {E708E2D6-3F04-471B-A4B8-D49E0970E8E4}
+		{8715ABBC-F45D-4A62-A6D9-0E72D9539E1B} = {E708E2D6-3F04-471B-A4B8-D49E0970E8E4}
+		{01E0C66E-074B-403D-AFC3-0FA2F2F80CD7} = {69359285-03AE-4441-A9DF-B4ECE0E976CD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37B2D9B0-3D08-42E0-9C7E-C14792226159}
 	EndGlobalSection
 EndGlobal
