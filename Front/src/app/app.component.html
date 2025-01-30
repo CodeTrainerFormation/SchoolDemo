@@ -1,18 +1,12 @@
-<!-- Hello World
-
-<p>{{ title }}</p>
-
-{{ items[0] }}
-
-<ul>
-@for (item of items; track item){
-  <li>{{ item }}</li>
-}
-</ul>
-
-
-<button (click)="addItem()" >Add item</button> -->
-
 @for (school of schools; track school){
 <p>Name : {{ school.name }} (id: {{ school.schoolID }})</p>
 }
+
+
+<h3>Current School</h3>
+<p>Name : {{ currentSchool.name }} (id: {{ currentSchool.schoolID }})</p>
+
+
+<button (click)="addNewSchool()">Add a new school</button>
+<button (click)="updateSchool1()">Update school with id 1</button>
+<button (click)="removeSchool3()">Remove school with id 3</button>

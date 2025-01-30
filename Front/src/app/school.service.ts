@@ -23,7 +23,7 @@ export class SchoolService {
   }
 
   addSchool(school: School): Observable<School>{
-    return this.http.post<School>(this.apiUrl, school);
+    return this.http.post<School>(`${this.apiUrl}/school/`, school);
   }
 
   updateSchool(school: School): Observable<any>{
