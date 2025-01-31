@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SchoolService {
 
-  private apiUrl = 'https://localhost:7048/api';
+  private apiUrl = 'https://schoolapi2025.azurewebsites.net/api';
 
   constructor(
     private http: HttpClient

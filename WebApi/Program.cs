@@ -32,7 +32,7 @@ builder.Services.AddCors(options =>
     {
         policy.AllowAnyHeader();
         policy.WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
-        policy.WithOrigins("http://localhost:4200");
+        policy.WithOrigins("http://localhost:4200", "https://schoolapifront2025.z6.web.core.windows.net/");
     });
 });
 
